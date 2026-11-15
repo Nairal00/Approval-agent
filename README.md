@@ -2,6 +2,9 @@
 
 业务部门通过提交 ROPA（个人数据处理活动记录）后，Agent预审每份表格并给出改进意见。
 
+Sample Input 见 [input.csv](input.csv)
+Sample Output 见 [input_reviewed.csv](input_reviewed.csv)
+
 | 结论 | 详细说明 | 后续操作 |
 |---|---|---|
 | Ready to Submit | 每个问题都回答得足够清楚 | 业务人员可以正式提交审核 |
