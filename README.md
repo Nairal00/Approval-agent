@@ -10,8 +10,8 @@
 
 Agent只判断收集到的信息是否能进行下一步的评审，不判断这项数据处理活动是否合规。
 
-Sample Input 
-Sample Output
+Sample Input 见文件夹内Input.csv
+Sample Output见文件夹内Input_Reviewed.csv
 
 ## 项目背景
 
@@ -35,7 +35,7 @@ Agent有时会不稳定：可能漏看某个问题，可能出现幻觉，也可
 
 ### 安装
 
-需要 Python 3.10 以上。系统自带的 Python 3.9 版本不够。
+需要 Python 3.10 以上。
 
 ```bash
 /opt/homebrew/bin/python3.12 -m venv .venv
@@ -123,8 +123,6 @@ Agent 按 skill 判断 ──► 第 1 关：SDK 按 JSON schema 校验格式
 | 1. 格式 | SDK | 符合 `output_format` 里的 JSON schema：字段齐全，`status` 和 `priority` 只能取枚举值 | SDK 自动重新生成 |
 | 2. 完整性 | `validators.check_completeness` | 11 个 `question_id` 各出现一次；`incomplete` 填了 `missing_detail` 和 `priority`；`unsure` 填了 `unsure_reason`；`submission_id` 与输入一致 | 让 agent 重做 |
 | 3. 引用真实性 | `validators.check_quotes` | `quoted_answer` 是该题原始回答的子串，比对时忽略空白和大小写；原回答为空时引用也必须为空 | 让 agent 重做 |
-
-第 3 关取代了 citations 功能。Agent SDK 没有 citations，Claude API 的 citations 也不能和结构化输出同时使用，所以改由模型写出原话、代码核对。
 
 ### 重做机制
 
