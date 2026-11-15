@@ -13,9 +13,6 @@ Sample Output 见 [input_reviewed.csv](input_reviewed.csv)
 
 Agent只判断收集到的信息是否能进行下一步的评审，不判断这项数据处理活动是否合规。
 
-Sample Input 见文件夹内Input.csv
-Sample Output见文件夹内Input_Reviewed.csv
-
 ## 项目背景
 
 因监管所需，ROPA表格法律专业术语较多，业务人员提交的ROPA质量参差不齐，太过笼统。
