@@ -107,7 +107,7 @@ input.csv
 Agent 按 skill 判断 ──► 第 1 关：SDK 按 JSON schema 校验格式
   │
   ▼
-第 2 关完整性 + 第 3 关引用 ──不通过──► 带问题清单 resume 重做（最多 3 次）
+第 2 关评判结论完整性 + 第 3 关是否真实引用 ──不通过──► 带问题清单让Agent重做（最多 3 次）
   │ 通过
   ▼
 代码计算 verdict ──► 写入 input_reviewed.csv
@@ -122,8 +122,8 @@ Agent 按 skill 判断 ──► 第 1 关：SDK 按 JSON schema 校验格式
 | 关卡 | 谁来查 | 查什么 | 没通过时 |
 |---|---|---|---|
 | 1. 格式 | SDK | 符合 `output_format` 里的 JSON schema：字段齐全，`status` 和 `priority` 只能取枚举值 | SDK 自动重新生成 |
-| 2. 完整性 | `validators.check_completeness` | 11 个 `question_id` 各出现一次；`incomplete` 填了 `missing_detail` 和 `priority`；`unsure` 填了 `unsure_reason`；`submission_id` 与输入一致 | 让 agent 重做 |
-| 3. 引用真实性 | `validators.check_quotes` | `quoted_answer` 是该题原始回答的子串，比对时忽略空白和大小写；原回答为空时引用也必须为空 | 让 agent 重做 |
+| 2. 完整性 | `validators.check_completeness` | 11 个 `question_id` 各出现一次；`incomplete`是否填了 `missing_detail` 和 `priority`；`unsure`是否填了 `unsure_reason`；`submission_id` 与输入一致 | 让 agent 重做 |
+| 3. 引用真实性 | `validators.check_quotes` | `quoted_answer` 是否出自该题原始回答，比对时忽略空白和大小写；原回答为空时引用也必须为空 | 让 agent 重做 |
 
 ### 重做机制
 
@@ -131,7 +131,7 @@ Agent 按 skill 判断 ──► 第 1 关：SDK 按 JSON schema 校验格式
 
 ### 结论和升级原因
 
-`verdict.compute_verdict` 只根据各题 `status` 计算：有 `unsure` 则 Escalate，否则有 `incomplete` 则 Not ready，否则 Ready。
+`verdict.compute_verdict` 只根据各题 `status` 计算：有一题是 `unsure` 则申请表整体判定为 Escalate，否则有一题是 `incomplete` 则申请表整体判定为 Not ready to Submit。如果以上状况全无， 申请表整体判定为Ready to Submit。
 
 | `escalation_cause` | 含义 |
 |---|---|
