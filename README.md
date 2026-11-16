@@ -7,11 +7,11 @@ Sample Output 见 [input_reviewed.csv](input_reviewed.csv)
 
 | 结论 | 详细说明 | 后续操作 |
 |---|---|---|
-| Ready to Submit | 每个问题都回答得足够清楚 | 业务人员可以正式提交审核 |
-| Not ready to submit | 有问题回答得太笼统或没填 | 业务人员按清单补充后重新提交 |
-| Escalate | Agent不确定，或者运行中出了问题 | 交给隐私合规团队人工处理 |
+| Ready to Submit | 无需额外补充信息 | 业务人员可以正式提交审核 |
+| Not ready to submit | 有问题回答得太笼统，需补充修改申请 | 业务人员按清单补充后重新提交 |
+| Escalate | Agent不确定，或者Agent运行中出先技术问题 | 交给隐私合规团队人工处理 |
 
-Agent只判断收集到的信息是否能进行下一步的评审，不判断这项数据处理活动是否合规。
+Agent只判断申请表是否能进行下一步的评审，不判断申请是否合规。
 
 ## 项目背景和痛点
 
