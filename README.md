@@ -9,9 +9,9 @@ Sample Output 见 [input_reviewed.csv](input_reviewed.csv)
 |---|---|---|
 | Ready to Submit | 无需额外补充信息 | 业务人员可以正式提交审核 |
 | Not ready to submit | 有问题回答得太笼统，需补充修改申请 | 业务人员按清单补充后重新提交 |
-| Escalate | Agent不确定，或者Agent运行中出先技术问题 | 交给隐私合规团队人工处理 |
+| Escalate | Agent不确定，或者Agent运行中出现技术问题 | 交给隐私合规团队人工处理 |
 
-Agent只判断申请表是否能进行下一步的评审，不判断申请是否合规。
+Agent只判断申请表是否能进行下一步的评审，不判断所填内容是否合规。
 
 ## 项目背景和痛点
 
